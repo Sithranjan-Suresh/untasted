@@ -1,0 +1,371 @@
+[
+  {
+    "id": "espresso",
+    "name": "Espresso Shot",
+    "category": "espresso",
+    "flavor_profile": { "sweetness": 2, "bitterness": 9, "roastiness": 9, "spice": 1, "brightness": 6, "creaminess": 1, "warmth": 7, "complexity": 8 },
+    "cost_per_unit": 0.5,
+    "unit": "shot",
+    "mock_stock_quantity": 50
+  },
+  {
+    "id": "cold_brew",
+    "name": "Cold Brew Concentrate",
+    "category": "espresso",
+    "flavor_profile": { "sweetness": 2, "bitterness": 7, "roastiness": 8, "spice": 0, "brightness": 3, "creaminess": 1, "warmth": 2, "complexity": 6 },
+    "cost_per_unit": 0.6,
+    "unit": "oz",
+    "mock_stock_quantity": 30
+  },
+  {
+    "id": "decaf_espresso",
+    "name": "Decaf Espresso",
+    "category": "espresso",
+    "flavor_profile": { "sweetness": 2, "bitterness": 7, "roastiness": 8, "spice": 0, "brightness": 4, "creaminess": 1, "warmth": 6, "complexity": 6 },
+    "cost_per_unit": 0.6,
+    "unit": "shot",
+    "mock_stock_quantity": 20
+  },
+  {
+    "id": "whole_milk",
+    "name": "Whole Milk",
+    "category": "dairy",
+    "flavor_profile": { "sweetness": 4, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 1, "creaminess": 8, "warmth": 3, "complexity": 2 },
+    "cost_per_unit": 0.15,
+    "unit": "oz",
+    "mock_stock_quantity": 200
+  },
+  {
+    "id": "oat_milk",
+    "name": "Oat Milk",
+    "category": "dairy",
+    "flavor_profile": { "sweetness": 5, "bitterness": 0, "roastiness": 2, "spice": 0, "brightness": 2, "creaminess": 6, "warmth": 3, "complexity": 3 },
+    "cost_per_unit": 0.25,
+    "unit": "oz",
+    "mock_stock_quantity": 8
+  },
+  {
+    "id": "almond_milk",
+    "name": "Almond Milk",
+    "category": "dairy",
+    "flavor_profile": { "sweetness": 4, "bitterness": 1, "roastiness": 1, "spice": 0, "brightness": 3, "creaminess": 4, "warmth": 2, "complexity": 3 },
+    "cost_per_unit": 0.2,
+    "unit": "oz",
+    "mock_stock_quantity": 60
+  },
+  {
+    "id": "coconut_milk",
+    "name": "Coconut Milk",
+    "category": "dairy",
+    "flavor_profile": { "sweetness": 5, "bitterness": 0, "roastiness": 1, "spice": 1, "brightness": 3, "creaminess": 8, "warmth": 5, "complexity": 5 },
+    "cost_per_unit": 0.3,
+    "unit": "oz",
+    "mock_stock_quantity": 40
+  },
+  {
+    "id": "heavy_cream",
+    "name": "Heavy Cream",
+    "category": "dairy",
+    "flavor_profile": { "sweetness": 3, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 0, "creaminess": 10, "warmth": 4, "complexity": 2 },
+    "cost_per_unit": 0.2,
+    "unit": "oz",
+    "mock_stock_quantity": 5
+  },
+  {
+    "id": "vanilla_syrup",
+    "name": "Vanilla Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 9, "bitterness": 0, "roastiness": 1, "spice": 1, "brightness": 2, "creaminess": 2, "warmth": 5, "complexity": 4 },
+    "cost_per_unit": 0.3,
+    "unit": "pump",
+    "mock_stock_quantity": 3
+  },
+  {
+    "id": "caramel_syrup",
+    "name": "Caramel Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 9, "bitterness": 2, "roastiness": 4, "spice": 0, "brightness": 1, "creaminess": 3, "warmth": 7, "complexity": 5 },
+    "cost_per_unit": 0.3,
+    "unit": "pump",
+    "mock_stock_quantity": 80
+  },
+  {
+    "id": "hazelnut_syrup",
+    "name": "Hazelnut Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 3, "spice": 1, "brightness": 1, "creaminess": 2, "warmth": 6, "complexity": 5 },
+    "cost_per_unit": 0.3,
+    "unit": "pump",
+    "mock_stock_quantity": 70
+  },
+  {
+    "id": "lavender_syrup",
+    "name": "Lavender Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 7, "bitterness": 0, "roastiness": 0, "spice": 2, "brightness": 8, "creaminess": 1, "warmth": 3, "complexity": 7 },
+    "cost_per_unit": 0.4,
+    "unit": "pump",
+    "mock_stock_quantity": 4
+  },
+  {
+    "id": "brown_sugar_syrup",
+    "name": "Brown Sugar Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 4, "spice": 2, "brightness": 1, "creaminess": 1, "warmth": 8, "complexity": 5 },
+    "cost_per_unit": 0.25,
+    "unit": "pump",
+    "mock_stock_quantity": 90
+  },
+  {
+    "id": "raspberry_syrup",
+    "name": "Raspberry Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 0, "spice": 0, "brightness": 9, "creaminess": 0, "warmth": 2, "complexity": 4 },
+    "cost_per_unit": 0.35,
+    "unit": "pump",
+    "mock_stock_quantity": 6
+  },
+  {
+    "id": "white_mocha_syrup",
+    "name": "White Mocha Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 9, "bitterness": 0, "roastiness": 2, "spice": 0, "brightness": 1, "creaminess": 5, "warmth": 4, "complexity": 3 },
+    "cost_per_unit": 0.3,
+    "unit": "pump",
+    "mock_stock_quantity": 60
+  },
+  {
+    "id": "mocha_syrup",
+    "name": "Mocha Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 7, "bitterness": 4, "roastiness": 6, "spice": 0, "brightness": 2, "creaminess": 2, "warmth": 6, "complexity": 6 },
+    "cost_per_unit": 0.3,
+    "unit": "pump",
+    "mock_stock_quantity": 75
+  },
+  {
+    "id": "honey",
+    "name": "Honey",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 2, "spice": 1, "brightness": 4, "creaminess": 1, "warmth": 5, "complexity": 6 },
+    "cost_per_unit": 0.2,
+    "unit": "tsp",
+    "mock_stock_quantity": 30
+  },
+  {
+    "id": "cinnamon_powder",
+    "name": "Cinnamon Powder",
+    "category": "spice",
+    "flavor_profile": { "sweetness": 3, "bitterness": 1, "roastiness": 2, "spice": 8, "brightness": 2, "creaminess": 0, "warmth": 9, "complexity": 6 },
+    "cost_per_unit": 0.05,
+    "unit": "tsp",
+    "mock_stock_quantity": 100
+  },
+  {
+    "id": "cardamom",
+    "name": "Cardamom",
+    "category": "spice",
+    "flavor_profile": { "sweetness": 2, "bitterness": 2, "roastiness": 1, "spice": 8, "brightness": 7, "creaminess": 0, "warmth": 8, "complexity": 9 },
+    "cost_per_unit": 0.1,
+    "unit": "tsp",
+    "mock_stock_quantity": 40
+  },
+  {
+    "id": "nutmeg",
+    "name": "Nutmeg",
+    "category": "spice",
+    "flavor_profile": { "sweetness": 2, "bitterness": 1, "roastiness": 2, "spice": 7, "brightness": 2, "creaminess": 0, "warmth": 9, "complexity": 7 },
+    "cost_per_unit": 0.05,
+    "unit": "tsp",
+    "mock_stock_quantity": 50
+  },
+  {
+    "id": "ginger_powder",
+    "name": "Ginger Powder",
+    "category": "spice",
+    "flavor_profile": { "sweetness": 1, "bitterness": 2, "roastiness": 0, "spice": 9, "brightness": 7, "creaminess": 0, "warmth": 9, "complexity": 7 },
+    "cost_per_unit": 0.05,
+    "unit": "tsp",
+    "mock_stock_quantity": 60
+  },
+  {
+    "id": "turmeric",
+    "name": "Turmeric",
+    "category": "spice",
+    "flavor_profile": { "sweetness": 0, "bitterness": 3, "roastiness": 1, "spice": 6, "brightness": 5, "creaminess": 0, "warmth": 8, "complexity": 7 },
+    "cost_per_unit": 0.05,
+    "unit": "tsp",
+    "mock_stock_quantity": 45
+  },
+  {
+    "id": "matcha_powder",
+    "name": "Matcha Powder",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 2, "bitterness": 6, "roastiness": 2, "spice": 1, "brightness": 8, "creaminess": 1, "warmth": 4, "complexity": 8 },
+    "cost_per_unit": 0.5,
+    "unit": "tsp",
+    "mock_stock_quantity": 20
+  },
+  {
+    "id": "cocoa_powder",
+    "name": "Cocoa Powder",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 2, "bitterness": 7, "roastiness": 6, "spice": 0, "brightness": 2, "creaminess": 1, "warmth": 5, "complexity": 7 },
+    "cost_per_unit": 0.1,
+    "unit": "tsp",
+    "mock_stock_quantity": 80
+  },
+  {
+    "id": "vanilla_extract",
+    "name": "Vanilla Extract",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 5, "bitterness": 1, "roastiness": 1, "spice": 2, "brightness": 3, "creaminess": 2, "warmth": 6, "complexity": 5 },
+    "cost_per_unit": 0.1,
+    "unit": "drops",
+    "mock_stock_quantity": 35
+  },
+  {
+    "id": "sea_salt",
+    "name": "Sea Salt",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 1, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 5, "creaminess": 0, "warmth": 0, "complexity": 4 },
+    "cost_per_unit": 0.01,
+    "unit": "pinch",
+    "mock_stock_quantity": 200
+  },
+  {
+    "id": "whipped_cream",
+    "name": "Whipped Cream",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 5, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 0, "creaminess": 9, "warmth": 2, "complexity": 2 },
+    "cost_per_unit": 0.2,
+    "unit": "oz",
+    "mock_stock_quantity": 15
+  },
+  {
+    "id": "cold_foam",
+    "name": "Cold Foam",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 4, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 1, "creaminess": 8, "warmth": 1, "complexity": 2 },
+    "cost_per_unit": 0.3,
+    "unit": "oz",
+    "mock_stock_quantity": 10
+  },
+  {
+    "id": "espresso_tonic_base",
+    "name": "Tonic Water",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 2, "bitterness": 5, "roastiness": 0, "spice": 1, "brightness": 9, "creaminess": 0, "warmth": 0, "complexity": 4 },
+    "cost_per_unit": 0.2,
+    "unit": "oz",
+    "mock_stock_quantity": 48
+  },
+  {
+    "id": "orange_zest",
+    "name": "Orange Zest",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 3, "bitterness": 3, "roastiness": 0, "spice": 2, "brightness": 10, "creaminess": 0, "warmth": 3, "complexity": 6 },
+    "cost_per_unit": 0.1,
+    "unit": "tsp",
+    "mock_stock_quantity": 20
+  },
+  {
+    "id": "lemon_syrup",
+    "name": "Lemon Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 7, "bitterness": 2, "roastiness": 0, "spice": 0, "brightness": 10, "creaminess": 0, "warmth": 1, "complexity": 4 },
+    "cost_per_unit": 0.3,
+    "unit": "pump",
+    "mock_stock_quantity": 25
+  },
+  {
+    "id": "rose_syrup",
+    "name": "Rose Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 0, "spice": 2, "brightness": 7, "creaminess": 1, "warmth": 3, "complexity": 7 },
+    "cost_per_unit": 0.4,
+    "unit": "pump",
+    "mock_stock_quantity": 5
+  },
+  {
+    "id": "chai_concentrate",
+    "name": "Chai Concentrate",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 5, "bitterness": 3, "roastiness": 3, "spice": 9, "brightness": 4, "creaminess": 1, "warmth": 9, "complexity": 9 },
+    "cost_per_unit": 0.4,
+    "unit": "oz",
+    "mock_stock_quantity": 12
+  },
+  {
+    "id": "pumpkin_spice_syrup",
+    "name": "Pumpkin Spice Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 3, "spice": 7, "brightness": 1, "creaminess": 2, "warmth": 9, "complexity": 7 },
+    "cost_per_unit": 0.35,
+    "unit": "pump",
+    "mock_stock_quantity": 7
+  },
+  {
+    "id": "black_sesame_paste",
+    "name": "Black Sesame Paste",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 3, "bitterness": 4, "roastiness": 7, "spice": 0, "brightness": 1, "creaminess": 4, "warmth": 4, "complexity": 8 },
+    "cost_per_unit": 0.5,
+    "unit": "tsp",
+    "mock_stock_quantity": 10
+  },
+  {
+    "id": "pistachio_syrup",
+    "name": "Pistachio Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 2, "spice": 0, "brightness": 2, "creaminess": 3, "warmth": 4, "complexity": 6 },
+    "cost_per_unit": 0.4,
+    "unit": "pump",
+    "mock_stock_quantity": 8
+  },
+  {
+    "id": "condensed_milk",
+    "name": "Condensed Milk",
+    "category": "dairy",
+    "flavor_profile": { "sweetness": 10, "bitterness": 0, "roastiness": 2, "spice": 0, "brightness": 1, "creaminess": 8, "warmth": 4, "complexity": 3 },
+    "cost_per_unit": 0.15,
+    "unit": "tsp",
+    "mock_stock_quantity": 40
+  },
+  {
+    "id": "soy_milk",
+    "name": "Soy Milk",
+    "category": "dairy",
+    "flavor_profile": { "sweetness": 3, "bitterness": 2, "roastiness": 1, "spice": 0, "brightness": 2, "creaminess": 5, "warmth": 2, "complexity": 3 },
+    "cost_per_unit": 0.2,
+    "unit": "oz",
+    "mock_stock_quantity": 70
+  },
+  {
+    "id": "maple_syrup",
+    "name": "Maple Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 4, "spice": 1, "brightness": 2, "creaminess": 1, "warmth": 7, "complexity": 6 },
+    "cost_per_unit": 0.25,
+    "unit": "pump",
+    "mock_stock_quantity": 35
+  },
+  {
+    "id": "butterfly_pea_flower",
+    "name": "Butterfly Pea Flower Syrup",
+    "category": "syrup",
+    "flavor_profile": { "sweetness": 6, "bitterness": 2, "roastiness": 0, "spice": 0, "brightness": 7, "creaminess": 0, "warmth": 2, "complexity": 6 },
+    "cost_per_unit": 0.5,
+    "unit": "pump",
+    "mock_stock_quantity": 3
+  },
+  {
+    "id": "cold_brew_tonic",
+    "name": "Sparkling Water",
+    "category": "add-in",
+    "flavor_profile": { "sweetness": 0, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 6, "creaminess": 0, "warmth": 0, "complexity": 1 },
+    "cost_per_unit": 0.1,
+    "unit": "oz",
+    "mock_stock_quantity": 100
+  }
+]
