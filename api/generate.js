@@ -1,5 +1,7 @@
-import ingredients from '../src/data/ingredients.json' assert { type: 'json' };
-import fallbacks from '../src/data/fallbacks.json' assert { type: 'json' };
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const ingredients = require('../src/data/ingredients.json');
+const fallbacks = require('../src/data/fallbacks.json');
 import { buildOwnerProfile } from '../src/utils/profileBuilder.js';
 import { scoreIngredients } from '../src/utils/matching.js';
 
