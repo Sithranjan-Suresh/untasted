@@ -10,6 +10,7 @@ const scrollReveal = {
 export default function RecipeOutput({ result, onBack, onReset, onSave, savedDrinks = [] }) {
   const [saved, setSaved] = useState(false);
   const [imgErr, setImgErr] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
   const [copied, setCopied] = useState(false);
   const [savedOpen, setSavedOpen] = useState(false);
 
@@ -19,16 +20,24 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
   const drinkName = result.recipe_name ?? 'Your New Drink';
   const surplusCount = result.matched_ingredients?.length ?? 0;
 
+  const sellPrice = result.cost_estimate != null
+    ? (result.cost_estimate * 4.5).toFixed(2)
+    : null;
+  const marginPerCup = result.cost_estimate != null
+    ? (result.cost_estimate * 3.5).toFixed(2)
+    : null;
+
   function handleSave() {
     onSave?.(result);
     setSaved(true);
   }
 
+  const shareText = `Just invented "${drinkName}" with Untasted ☕ — an AI-powered flavor chemistry engine that turns café surplus into tomorrow's special.`;
+
   function handleShare() {
-    const text = `Just invented "${drinkName}" with Untasted ☕ — an AI-powered flavor chemistry engine that turns café surplus into tomorrow's special.`;
-    navigator.clipboard?.writeText(text).then(() => {
+    navigator.clipboard?.writeText(shareText).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), 3000);
     });
   }
 
@@ -81,7 +90,7 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
                   <span className="saved-drawer__name">{d.recipe_name ?? 'Unnamed Drink'}</span>
                   <span className="saved-drawer__mode">{d.mode === 'owner' ? '🏪' : '🎨'}</span>
                   {d.cost_estimate != null && (
-                    <span className="saved-drawer__cost">${d.cost_estimate.toFixed(2)}</span>
+                    <span className="saved-drawer__cost">${d.cost_estimate.toFixed(2)} cost</span>
                   )}
                 </div>
               ))}
@@ -96,7 +105,7 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
         animate="show"
         variants={{ show: { transition: { staggerChildren: 0.12 } } }}
       >
-        {/* Drink name */}
+        {/* Drink name + meta */}
         <motion.div variants={scrollReveal}>
           <div style={{ marginBottom: '0.25rem', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8a5030' }}>
             {isOwner ? 'Owner Mode Recipe' : 'Creative Mode Recipe'}
@@ -121,7 +130,17 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
               </span>
             )}
             {isOwner && result.cost_estimate != null && (
-              <span className="cost-badge">💰 Est. cost: ${result.cost_estimate.toFixed(2)}</span>
+              <span className="cost-badge">💰 Cost: ${result.cost_estimate.toFixed(2)}/cup</span>
+            )}
+            {isOwner && sellPrice && (
+              <motion.span
+                className="margin-badge"
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6, type: 'spring', stiffness: 300 }}
+              >
+                📈 ~${sellPrice} sell price → ${marginPerCup} margin/cup
+              </motion.span>
             )}
             {isOwner && surplusCount > 0 && (
               <motion.span
@@ -155,11 +174,16 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
                 <div className="output__section-label">AI Artwork</div>
                 <div className={`output__artwork ${!result.artwork_url || imgErr ? 'output__artwork--placeholder' : ''}`}>
                   {result.artwork_url && !imgErr ? (
-                    <img
-                      src={result.artwork_url}
-                      alt={drinkName}
-                      onError={() => setImgErr(true)}
-                    />
+                    <>
+                      {!imgLoaded && <div className="artwork-shimmer" />}
+                      <img
+                        src={result.artwork_url}
+                        alt={drinkName}
+                        style={{ display: imgLoaded ? 'block' : 'none' }}
+                        onLoad={() => setImgLoaded(true)}
+                        onError={() => setImgErr(true)}
+                      />
+                    </>
                   ) : (
                     <>
                       <span style={{ fontSize: '3rem' }}>☕</span>
@@ -204,7 +228,7 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
                   >
                     <div className="output__reason-header">
                       <span className="output__reason-name">{ing.name}</span>
-                      <span className="output__reason-score">{Math.round(ing.score * 100)}%</span>
+                      <span className="output__reason-score-big">{Math.round(ing.score * 100)}%</span>
                     </div>
                     <div className="output__reason-text">{ing.reason}</div>
                   </motion.li>
@@ -214,41 +238,63 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
           </div>
         </div>
 
-        {/* Actions */}
-        <motion.div className="output__actions" variants={scrollReveal}>
-          <motion.button
-            className="neo-btn neo-btn--primary"
-            onClick={handleSave}
-            disabled={saved}
-            whileHover={!saved ? { scale: 1.04 } : {}}
-            whileTap={!saved ? { scale: 0.96 } : {}}
-          >
-            {saved ? '✓ Saved!' : '💾 Save Recipe'}
-          </motion.button>
-          <motion.button
-            className="neo-btn neo-btn--matcha"
-            onClick={handleShare}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            {copied ? '✓ Copied!' : '🔗 Share Recipe'}
-          </motion.button>
-          <motion.button
-            className="neo-btn neo-btn--outline"
-            onClick={onReset}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            🔄 Make Another
-          </motion.button>
-          <motion.button
-            className="neo-btn neo-btn--outline neo-btn--sm"
-            onClick={onBack}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            ← Back to Modes
-          </motion.button>
+        {/* Save & Share card */}
+        <motion.div variants={scrollReveal}>
+          <div className="output__actions-card">
+            <div className="output__actions-label">Save & Share This Recipe</div>
+            <div className="output__actions-primary">
+              <motion.button
+                className="neo-btn neo-btn--primary neo-btn--lg"
+                onClick={handleSave}
+                disabled={saved}
+                whileHover={!saved ? { scale: 1.04 } : {}}
+                whileTap={!saved ? { scale: 0.96 } : {}}
+              >
+                {saved ? '✓ Saved to session!' : '💾 Save Recipe'}
+              </motion.button>
+              <motion.button
+                className="neo-btn neo-btn--matcha neo-btn--lg"
+                onClick={handleShare}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                {copied ? '✓ Copied!' : '🔗 Copy & Share'}
+              </motion.button>
+            </div>
+
+            <AnimatePresence>
+              {copied && (
+                <motion.div
+                  className="share-preview"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  "{shareText}"
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <div className="output__actions-secondary">
+              <motion.button
+                className="neo-btn neo-btn--outline"
+                onClick={onReset}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                🔄 Invent Another
+              </motion.button>
+              <motion.button
+                className="neo-btn neo-btn--outline neo-btn--sm"
+                onClick={onBack}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                ← Change Mode
+              </motion.button>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </div>

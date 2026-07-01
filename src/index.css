@@ -214,9 +214,9 @@ body {
 
 /* ── Mode Selector ───────────────────────────────────────── */
 .home {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 6rem;
+  padding: 3rem 2.5rem 6rem;
 }
 
 .home__badge {
@@ -351,7 +351,7 @@ body {
 
 /* ── Screens ─────────────────────────────────────────────── */
 .screen {
-  max-width: 820px;
+  max-width: 1000px;
   margin: 1.5rem auto 4rem;
   padding: 0 1.25rem;
   display: flex;
@@ -494,9 +494,9 @@ body {
 
 /* ── Recipe Output ───────────────────────────────────────── */
 .output {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 1.5rem auto 4rem;
-  padding: 0 1.25rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -789,7 +789,7 @@ body {
 .checklist__search-clear:hover { background: var(--latte); }
 
 /* ── Owner Mode split layout ─────────────────────────────── */
-.screen--owner { max-width: 1100px; }
+.screen--owner { max-width: 1280px; }
 .screen__owner-body {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -834,4 +834,109 @@ body {
   padding: 6px 12px;
   margin-top: 0.75rem;
   box-shadow: var(--shadow-sm);
+}
+
+/* ── Expiry badge on chips ───────────────────────────────── */
+.neo-chip__expiry {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--espresso);
+  background: #ffe4d4;
+  border: 1px solid var(--espresso);
+  border-radius: 100px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+/* ── Expiry warning banner ───────────────────────────────── */
+.expiry-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fff3e0;
+  border: 3px solid var(--espresso);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--espresso);
+  box-shadow: 3px 3px 0 var(--espresso);
+  margin-bottom: 1rem;
+}
+
+/* ── Margin badge ────────────────────────────────────────── */
+.margin-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  border: 3px solid var(--black);
+  border-radius: 100px;
+  background: #d4f0c4;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Reason score large display ──────────────────────────── */
+.output__reason-score-big {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--caramel);
+  line-height: 1;
+  min-width: 3.5rem;
+  text-align: right;
+}
+
+/* ── Artwork shimmer skeleton ────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.artwork-shimmer {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(90deg, #f0e0c8 25%, #fdf0dd 50%, #f0e0c8 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 12px;
+}
+
+/* ── Save / Share action card ────────────────────────────── */
+.output__actions-card {
+  border: 3px solid var(--black);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.5rem;
+}
+.output__actions-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a5030;
+  margin-bottom: 0.75rem;
+}
+.output__actions-primary {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.output__actions-secondary {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 2px solid #e8d5a3;
+}
+.share-preview {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #6a4020;
+  background: #fffaf3;
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  font-style: italic;
 }

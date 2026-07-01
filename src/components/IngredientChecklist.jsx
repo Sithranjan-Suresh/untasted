@@ -86,6 +86,7 @@ export default function IngredientChecklist({ selected, onChange, maxSelect = 8 
                 const isSelected = selected.includes(ing.id);
                 const isDisabled = !isSelected && selected.length >= maxSelect;
                 const lowStock = ing.mock_stock_quantity < 3;
+                const nearExpiry = ing.days_until_expiry != null && ing.days_until_expiry <= 3;
                 return (
                   <motion.button
                     key={ing.id}
@@ -100,7 +101,10 @@ export default function IngredientChecklist({ selected, onChange, maxSelect = 8 
                     transition={{ type: 'spring', stiffness: 400, damping: 22 }}
                   >
                     {isSelected ? '✓ ' : ''}{ing.name}
-                    {lowStock && <span className="neo-chip__low-stock">low stock</span>}
+                    {nearExpiry && (
+                      <span className="neo-chip__expiry">⚠️ {ing.days_until_expiry}d</span>
+                    )}
+                    {!nearExpiry && lowStock && <span className="neo-chip__low-stock">low stock</span>}
                   </motion.button>
                 );
               })}

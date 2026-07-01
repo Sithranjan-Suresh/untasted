@@ -61,6 +61,23 @@ export default function OwnerModeScreen({ onGenerate, onBack }) {
           </motion.p>
         </div>
 
+        {(() => {
+          const nearExpirySelected = selected
+            .map(id => ingredientsData.find(i => i.id === id))
+            .filter(i => i && i.days_until_expiry != null && i.days_until_expiry <= 3);
+          return nearExpirySelected.length > 0 ? (
+            <motion.div
+              className="expiry-banner"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              🔴 {nearExpirySelected.length} near-expiry ingredient{nearExpirySelected.length > 1 ? 's' : ''} selected:{' '}
+              {nearExpirySelected.map(i => `${i.name} (${i.days_until_expiry}d left)`).join(', ')} — act now!
+            </motion.div>
+          ) : null;
+        })()}
+
         <div className="screen__owner-body">
           {/* Left: ingredient checklist */}
           <div className="screen__body">

@@ -7,7 +7,8 @@
     "cost_per_unit": 0.5,
     "unit": "shot",
     "default_quantity": 2,
-    "mock_stock_quantity": 50
+    "mock_stock_quantity": 50,
+    "days_until_expiry": 12
   },
   {
     "id": "cold_brew",
@@ -17,7 +18,8 @@
     "cost_per_unit": 0.6,
     "unit": "oz",
     "default_quantity": 2,
-    "mock_stock_quantity": 30
+    "mock_stock_quantity": 30,
+    "days_until_expiry": 10
   },
   {
     "id": "decaf_espresso",
@@ -27,7 +29,8 @@
     "cost_per_unit": 0.6,
     "unit": "shot",
     "default_quantity": 2,
-    "mock_stock_quantity": 20
+    "mock_stock_quantity": 20,
+    "days_until_expiry": 8
   },
   {
     "id": "whole_milk",
@@ -37,7 +40,8 @@
     "cost_per_unit": 0.15,
     "unit": "oz",
     "default_quantity": 6,
-    "mock_stock_quantity": 200
+    "mock_stock_quantity": 200,
+    "days_until_expiry": 7
   },
   {
     "id": "oat_milk",
@@ -47,7 +51,8 @@
     "cost_per_unit": 0.25,
     "unit": "oz",
     "default_quantity": 6,
-    "mock_stock_quantity": 8
+    "mock_stock_quantity": 8,
+    "days_until_expiry": 4
   },
   {
     "id": "almond_milk",
@@ -57,7 +62,8 @@
     "cost_per_unit": 0.2,
     "unit": "oz",
     "default_quantity": 6,
-    "mock_stock_quantity": 60
+    "mock_stock_quantity": 60,
+    "days_until_expiry": 12
   },
   {
     "id": "coconut_milk",
@@ -67,7 +73,8 @@
     "cost_per_unit": 0.3,
     "unit": "oz",
     "default_quantity": 6,
-    "mock_stock_quantity": 40
+    "mock_stock_quantity": 40,
+    "days_until_expiry": 10
   },
   {
     "id": "heavy_cream",
@@ -77,7 +84,8 @@
     "cost_per_unit": 0.2,
     "unit": "oz",
     "default_quantity": 2,
-    "mock_stock_quantity": 5
+    "mock_stock_quantity": 5,
+    "days_until_expiry": 3
   },
   {
     "id": "vanilla_syrup",
@@ -87,7 +95,8 @@
     "cost_per_unit": 0.3,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 3
+    "mock_stock_quantity": 3,
+    "days_until_expiry": 2
   },
   {
     "id": "caramel_syrup",
@@ -97,7 +106,8 @@
     "cost_per_unit": 0.3,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 80
+    "mock_stock_quantity": 80,
+    "days_until_expiry": 14
   },
   {
     "id": "hazelnut_syrup",
@@ -107,7 +117,8 @@
     "cost_per_unit": 0.3,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 70
+    "mock_stock_quantity": 70,
+    "days_until_expiry": 14
   },
   {
     "id": "lavender_syrup",
@@ -117,7 +128,8 @@
     "cost_per_unit": 0.4,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 4
+    "mock_stock_quantity": 4,
+    "days_until_expiry": 2
   },
   {
     "id": "brown_sugar_syrup",
@@ -127,7 +139,8 @@
     "cost_per_unit": 0.25,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 90
+    "mock_stock_quantity": 90,
+    "days_until_expiry": 14
   },
   {
     "id": "raspberry_syrup",
@@ -137,7 +150,8 @@
     "cost_per_unit": 0.35,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 6
+    "mock_stock_quantity": 6,
+    "days_until_expiry": 4
   },
   {
     "id": "white_mocha_syrup",
@@ -147,7 +161,8 @@
     "cost_per_unit": 0.3,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 60
+    "mock_stock_quantity": 60,
+    "days_until_expiry": 12
   },
   {
     "id": "mocha_syrup",
@@ -157,7 +172,8 @@
     "cost_per_unit": 0.3,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 75
+    "mock_stock_quantity": 75,
+    "days_until_expiry": 14
   },
   {
     "id": "honey",
@@ -167,7 +183,8 @@
     "cost_per_unit": 0.2,
     "unit": "tsp",
     "default_quantity": 2,
-    "mock_stock_quantity": 30
+    "mock_stock_quantity": 30,
+    "days_until_expiry": 10
   },
   {
     "id": "cinnamon_powder",
@@ -177,7 +194,8 @@
     "cost_per_unit": 0.05,
     "unit": "tsp",
     "default_quantity": 0.5,
-    "mock_stock_quantity": 100
+    "mock_stock_quantity": 100,
+    "days_until_expiry": 14
   },
   {
     "id": "cardamom",
@@ -187,7 +205,8 @@
     "cost_per_unit": 0.1,
     "unit": "tsp",
     "default_quantity": 0.25,
-    "mock_stock_quantity": 40
+    "mock_stock_quantity": 40,
+    "days_until_expiry": 12
   },
   {
     "id": "nutmeg",
@@ -197,7 +216,8 @@
     "cost_per_unit": 0.05,
     "unit": "tsp",
     "default_quantity": 0.25,
-    "mock_stock_quantity": 50
+    "mock_stock_quantity": 50,
+    "days_until_expiry": 14
   },
   {
     "id": "ginger_powder",
@@ -207,7 +227,8 @@
     "cost_per_unit": 0.05,
     "unit": "tsp",
     "default_quantity": 0.25,
-    "mock_stock_quantity": 60
+    "mock_stock_quantity": 60,
+    "days_until_expiry": 14
   },
   {
     "id": "turmeric",
@@ -217,7 +238,8 @@
     "cost_per_unit": 0.05,
     "unit": "tsp",
     "default_quantity": 0.25,
-    "mock_stock_quantity": 45
+    "mock_stock_quantity": 45,
+    "days_until_expiry": 12
   },
   {
     "id": "matcha_powder",
@@ -227,7 +249,8 @@
     "cost_per_unit": 0.5,
     "unit": "tsp",
     "default_quantity": 1,
-    "mock_stock_quantity": 20
+    "mock_stock_quantity": 20,
+    "days_until_expiry": 8
   },
   {
     "id": "cocoa_powder",
@@ -237,7 +260,8 @@
     "cost_per_unit": 0.1,
     "unit": "tsp",
     "default_quantity": 1,
-    "mock_stock_quantity": 80
+    "mock_stock_quantity": 80,
+    "days_until_expiry": 14
   },
   {
     "id": "vanilla_extract",
@@ -247,7 +271,8 @@
     "cost_per_unit": 0.1,
     "unit": "drops",
     "default_quantity": 3,
-    "mock_stock_quantity": 35
+    "mock_stock_quantity": 35,
+    "days_until_expiry": 12
   },
   {
     "id": "sea_salt",
@@ -257,7 +282,8 @@
     "cost_per_unit": 0.01,
     "unit": "pinch",
     "default_quantity": 1,
-    "mock_stock_quantity": 200
+    "mock_stock_quantity": 200,
+    "days_until_expiry": 14
   },
   {
     "id": "whipped_cream",
@@ -267,7 +293,8 @@
     "cost_per_unit": 0.2,
     "unit": "oz",
     "default_quantity": 1,
-    "mock_stock_quantity": 15
+    "mock_stock_quantity": 15,
+    "days_until_expiry": 5
   },
   {
     "id": "cold_foam",
@@ -277,7 +304,8 @@
     "cost_per_unit": 0.3,
     "unit": "oz",
     "default_quantity": 1,
-    "mock_stock_quantity": 10
+    "mock_stock_quantity": 10,
+    "days_until_expiry": 4
   },
   {
     "id": "espresso_tonic_base",
@@ -287,7 +315,8 @@
     "cost_per_unit": 0.2,
     "unit": "oz",
     "default_quantity": 4,
-    "mock_stock_quantity": 48
+    "mock_stock_quantity": 48,
+    "days_until_expiry": 12
   },
   {
     "id": "orange_zest",
@@ -297,7 +326,8 @@
     "cost_per_unit": 0.1,
     "unit": "tsp",
     "default_quantity": 0.5,
-    "mock_stock_quantity": 20
+    "mock_stock_quantity": 20,
+    "days_until_expiry": 7
   },
   {
     "id": "lemon_syrup",
@@ -307,7 +337,8 @@
     "cost_per_unit": 0.3,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 25
+    "mock_stock_quantity": 25,
+    "days_until_expiry": 10
   },
   {
     "id": "rose_syrup",
@@ -317,7 +348,8 @@
     "cost_per_unit": 0.4,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 5
+    "mock_stock_quantity": 5,
+    "days_until_expiry": 3
   },
   {
     "id": "chai_concentrate",
@@ -327,7 +359,8 @@
     "cost_per_unit": 0.4,
     "unit": "oz",
     "default_quantity": 2,
-    "mock_stock_quantity": 12
+    "mock_stock_quantity": 12,
+    "days_until_expiry": 5
   },
   {
     "id": "pumpkin_spice_syrup",
@@ -337,7 +370,8 @@
     "cost_per_unit": 0.35,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 7
+    "mock_stock_quantity": 7,
+    "days_until_expiry": 4
   },
   {
     "id": "black_sesame_paste",
@@ -347,7 +381,8 @@
     "cost_per_unit": 0.5,
     "unit": "tsp",
     "default_quantity": 1,
-    "mock_stock_quantity": 10
+    "mock_stock_quantity": 10,
+    "days_until_expiry": 5
   },
   {
     "id": "pistachio_syrup",
@@ -357,7 +392,8 @@
     "cost_per_unit": 0.4,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 8
+    "mock_stock_quantity": 8,
+    "days_until_expiry": 5
   },
   {
     "id": "condensed_milk",
@@ -367,7 +403,8 @@
     "cost_per_unit": 0.15,
     "unit": "tsp",
     "default_quantity": 2,
-    "mock_stock_quantity": 40
+    "mock_stock_quantity": 40,
+    "days_until_expiry": 10
   },
   {
     "id": "soy_milk",
@@ -377,7 +414,8 @@
     "cost_per_unit": 0.2,
     "unit": "oz",
     "default_quantity": 6,
-    "mock_stock_quantity": 70
+    "mock_stock_quantity": 70,
+    "days_until_expiry": 10
   },
   {
     "id": "maple_syrup",
@@ -387,7 +425,8 @@
     "cost_per_unit": 0.25,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 35
+    "mock_stock_quantity": 35,
+    "days_until_expiry": 12
   },
   {
     "id": "butterfly_pea_flower",
@@ -397,7 +436,8 @@
     "cost_per_unit": 0.5,
     "unit": "pump",
     "default_quantity": 2,
-    "mock_stock_quantity": 3
+    "mock_stock_quantity": 3,
+    "days_until_expiry": 2
   },
   {
     "id": "cold_brew_tonic",
@@ -407,6 +447,7 @@
     "cost_per_unit": 0.1,
     "unit": "oz",
     "default_quantity": 4,
-    "mock_stock_quantity": 100
+    "mock_stock_quantity": 100,
+    "days_until_expiry": 14
   }
 ]
