@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const container = {
   hidden: {},
@@ -23,7 +24,15 @@ const MARQUEE_ITEMS = [
   '☕ Flavor Science', '🧪 8-Dim Vectors', '✨ AI Recipes', '🌿 Surplus Rescue',
 ];
 
+const HOW_IT_WORKS = [
+  { icon: '①', text: 'You select surplus ingredients or describe a mood/vibe' },
+  { icon: '②', text: 'We compute cosine similarity across 8 flavor dimensions: sweetness, bitterness, roastiness, spice, brightness, creaminess, warmth, complexity' },
+  { icon: '③', text: 'The AI invents a named, costed, barista-quality recipe matched to your exact flavor profile' },
+];
+
 export default function ModeSelector({ onSelect }) {
+  const [howOpen, setHowOpen] = useState(false);
+
   return (
     <div style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Floating coffee emojis */}
@@ -124,6 +133,51 @@ export default function ModeSelector({ onSelect }) {
             </div>
             <div className="mode-card__cta">Invent something new →</div>
           </motion.button>
+        </motion.div>
+
+        {/* How it works */}
+        <motion.div variants={item}>
+          <button
+            className="how-it-works__toggle"
+            onClick={() => setHowOpen(o => !o)}
+          >
+            <span>🧠 How does the flavor matching work?</span>
+            <motion.span
+              animate={{ rotate: howOpen ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+              style={{ display: 'inline-block', marginLeft: '0.5rem' }}
+            >
+              ▾
+            </motion.span>
+          </button>
+
+          <AnimatePresence>
+            {howOpen && (
+              <motion.div
+                className="how-it-works__panel"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                style={{ overflow: 'hidden' }}
+              >
+                <div className="how-it-works__body">
+                  {HOW_IT_WORKS.map((step, i) => (
+                    <motion.div
+                      key={i}
+                      className="how-it-works__step"
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.06 }}
+                    >
+                      <span className="how-it-works__num">{step.icon}</span>
+                      <span>{step.text}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         <motion.p className="home__footnote" variants={item}>

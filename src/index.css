@@ -658,3 +658,180 @@ body {
   padding-top: 1rem;
   border-top: 3px solid var(--black);
 }
+
+/* ── Waste badge ─────────────────────────────────────────── */
+.waste-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  border: 3px solid var(--black);
+  border-radius: 100px;
+  background: #d4f0c4;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Saved drinks drawer ─────────────────────────────────── */
+.saved-drawer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.saved-drawer__label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a5030;
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+}
+.saved-drawer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border: 3px solid var(--black);
+  border-radius: 12px;
+  background: white;
+  box-shadow: var(--shadow);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.saved-drawer__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0e0d0;
+}
+.saved-drawer__item:last-child { border-bottom: none; }
+.saved-drawer__name { font-size: 0.9rem; font-weight: 700; flex: 1; }
+.saved-drawer__mode { font-size: 1rem; }
+.saved-drawer__cost { font-size: 0.8rem; font-weight: 700; color: #8a5030; }
+
+/* ── How it works ────────────────────────────────────────── */
+.how-it-works__toggle {
+  background: white;
+  border: 3px solid var(--black);
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  transition: background 0.15s;
+  margin-bottom: 0.5rem;
+}
+.how-it-works__toggle:hover { background: var(--latte); }
+.how-it-works__panel { margin-bottom: 0.5rem; }
+.how-it-works__body {
+  border: 3px solid var(--black);
+  border-radius: 12px;
+  background: white;
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.how-it-works__step {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+.how-it-works__num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  color: var(--caramel);
+}
+
+/* ── Checklist search ────────────────────────────────────── */
+.checklist__search-wrap {
+  display: flex;
+  align-items: center;
+  border: 3px solid var(--black);
+  border-radius: 12px;
+  background: white;
+  box-shadow: var(--shadow-sm);
+  padding: 6px 14px;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+.checklist__search-icon { font-size: 1rem; flex-shrink: 0; }
+.checklist__search {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text);
+}
+.checklist__search::placeholder { color: #c0a080; }
+.checklist__search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #a08060;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: var(--font);
+  font-weight: 700;
+}
+.checklist__search-clear:hover { background: var(--latte); }
+
+/* ── Owner Mode split layout ─────────────────────────────── */
+.screen--owner { max-width: 1100px; }
+.screen__owner-body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 1.5rem;
+  align-items: start;
+  flex: 1;
+  padding: 1rem 0;
+}
+@media (max-width: 780px) {
+  .screen__owner-body { grid-template-columns: 1fr; }
+}
+.owner__preview { position: sticky; top: 90px; }
+.owner__preview-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a5030;
+  margin-bottom: 0.6rem;
+}
+.owner__preview-card { padding: 1rem; background: white; }
+.owner__preview-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #a08060;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.owner__preview-hint {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #3a7a2a;
+  background: #d4f0c4;
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-top: 0.75rem;
+  box-shadow: var(--shadow-sm);
+}

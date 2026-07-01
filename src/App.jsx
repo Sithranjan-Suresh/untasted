@@ -55,7 +55,7 @@ export default function App() {
   if (isGenerating) {
     screen = <LoadingScreen key="loading" mode={mode} />;
   } else if (result) {
-    screen = <RecipeOutput key="output" result={result} onBack={handleBack} onReset={handleReset} onSave={handleSave} />;
+    screen = <RecipeOutput key="output" result={result} onBack={handleBack} onReset={handleReset} onSave={handleSave} savedDrinks={savedDrinks} />;
   } else if (mode === 'owner') {
     screen = <OwnerModeScreen key="owner" onGenerate={handleGenerate} onBack={handleReset} />;
   } else if (mode === 'creative') {

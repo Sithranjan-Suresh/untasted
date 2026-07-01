@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import FlavorProfileChart from './FlavorProfileChart';
 
 const scrollReveal = {
@@ -7,18 +7,29 @@ const scrollReveal = {
   show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 240, damping: 26 } },
 };
 
-export default function RecipeOutput({ result, onBack, onReset, onSave }) {
+export default function RecipeOutput({ result, onBack, onReset, onSave, savedDrinks = [] }) {
   const [saved, setSaved] = useState(false);
   const [imgErr, setImgErr] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [savedOpen, setSavedOpen] = useState(false);
 
   if (!result) return null;
 
   const isOwner = result.mode === 'owner';
   const drinkName = result.recipe_name ?? 'Your New Drink';
+  const surplusCount = result.matched_ingredients?.length ?? 0;
 
   function handleSave() {
     onSave?.(result);
     setSaved(true);
+  }
+
+  function handleShare() {
+    const text = `Just invented "${drinkName}" with Untasted ☕ — an AI-powered flavor chemistry engine that turns café surplus into tomorrow's special.`;
+    navigator.clipboard?.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   }
 
   const matchPct = result.matched_ingredients?.length
@@ -37,10 +48,47 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
             <span className="navbar__logo-icon">☕</span>
             untasted
           </div>
-          {result.fallback && <span className="output__fallback-badge">📦 Example result</span>}
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            {result.fallback && <span className="output__fallback-badge">📦 Example result</span>}
+            {savedDrinks.length > 0 && (
+              <button
+                className="navbar__back"
+                onClick={() => setSavedOpen(o => !o)}
+                style={{ background: savedOpen ? 'var(--latte)' : 'white' }}
+              >
+                📋 Saved ({savedDrinks.length})
+              </button>
+            )}
+          </div>
           <button className="navbar__back" onClick={onReset}>← New Drink</button>
         </div>
       </nav>
+
+      {/* Saved drinks drawer */}
+      <AnimatePresence>
+        {savedOpen && savedDrinks.length > 0 && (
+          <motion.div
+            className="saved-drawer"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="saved-drawer__label">This session's saved recipes</div>
+            <div className="saved-drawer__list">
+              {savedDrinks.map((d, i) => (
+                <div key={i} className="saved-drawer__item">
+                  <span className="saved-drawer__name">{d.recipe_name ?? 'Unnamed Drink'}</span>
+                  <span className="saved-drawer__mode">{d.mode === 'owner' ? '🏪' : '🎨'}</span>
+                  {d.cost_estimate != null && (
+                    <span className="saved-drawer__cost">${d.cost_estimate.toFixed(2)}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <motion.div
         className="output"
@@ -65,23 +113,25 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
 
           <div className="output__meta">
             {matchPct !== null && (
-              <span style={{
-                fontSize: '0.85rem', fontWeight: 800, padding: '6px 16px',
-                border: '3px solid var(--black)', borderRadius: '100px',
-                background: 'white', boxShadow: 'var(--shadow-sm)'
-              }}>
-                Flavor match: {matchPct}%
-              </span>
+              <span className="cost-badge">Flavor match: {matchPct}%</span>
             )}
             {isOwner && result.buildable !== null && (
               <span className={`buildability-badge ${result.buildable ? 'buildability-badge--ok' : 'buildability-badge--warn'}`}>
                 {result.buildable ? '✅ Buildable' : '⚠️ Check stock'}
               </span>
             )}
-            {isOwner && result.cost_estimate !== null && (
-              <span className="cost-badge">
-                💰 Est. cost: ${result.cost_estimate.toFixed(2)}
-              </span>
+            {isOwner && result.cost_estimate != null && (
+              <span className="cost-badge">💰 Est. cost: ${result.cost_estimate.toFixed(2)}</span>
+            )}
+            {isOwner && surplusCount > 0 && (
+              <motion.span
+                className="waste-badge"
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, type: 'spring', stiffness: 300 }}
+              >
+                ♻️ Keeps {surplusCount} near-expiry item{surplusCount > 1 ? 's' : ''} off the bin
+              </motion.span>
             )}
           </div>
         </motion.div>
@@ -95,7 +145,7 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
               <div className="output__chart-wrap">
                 <FlavorProfileChart profile={result.target_flavor_profile} />
                 <p className="chart-caption">
-                  This radar shows the 8-dimension flavor vector that mathematically selected each ingredient.
+                  Selected by cosine similarity across 8 flavor dimensions: sweetness, bitterness, roastiness, spice, brightness, creaminess, warmth, complexity.
                 </p>
               </div>
             </motion.div>
@@ -154,9 +204,7 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
                   >
                     <div className="output__reason-header">
                       <span className="output__reason-name">{ing.name}</span>
-                      <span className="output__reason-score">
-                        {Math.round(ing.score * 100)}%
-                      </span>
+                      <span className="output__reason-score">{Math.round(ing.score * 100)}%</span>
                     </div>
                     <div className="output__reason-text">{ing.reason}</div>
                   </motion.li>
@@ -176,6 +224,14 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
             whileTap={!saved ? { scale: 0.96 } : {}}
           >
             {saved ? '✓ Saved!' : '💾 Save Recipe'}
+          </motion.button>
+          <motion.button
+            className="neo-btn neo-btn--matcha"
+            onClick={handleShare}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+          >
+            {copied ? '✓ Copied!' : '🔗 Share Recipe'}
           </motion.button>
           <motion.button
             className="neo-btn neo-btn--outline"

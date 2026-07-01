@@ -1,9 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import IngredientChecklist from './IngredientChecklist';
+import FlavorProfileChart from './FlavorProfileChart';
+import { buildOwnerProfile } from '../utils/profileBuilder.js';
+import ingredientsData from '../data/ingredients.json';
 
 export default function OwnerModeScreen({ onGenerate, onBack }) {
   const [selected, setSelected] = useState([]);
+  const [liveProfile, setLiveProfile] = useState(null);
+
+  useEffect(() => {
+    if (selected.length === 0) {
+      setLiveProfile(null);
+    } else {
+      setLiveProfile(buildOwnerProfile(selected, ingredientsData));
+    }
+  }, [selected]);
 
   function handleGenerate() {
     if (selected.length >= 2) onGenerate(selected);
@@ -24,7 +36,7 @@ export default function OwnerModeScreen({ onGenerate, onBack }) {
       </nav>
 
       <motion.div
-        className="screen"
+        className="screen screen--owner"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -24 }}
@@ -49,12 +61,49 @@ export default function OwnerModeScreen({ onGenerate, onBack }) {
           </motion.p>
         </div>
 
-        <div className="screen__body">
-          <IngredientChecklist
-            selected={selected}
-            onChange={setSelected}
-            maxSelect={8}
-          />
+        <div className="screen__owner-body">
+          {/* Left: ingredient checklist */}
+          <div className="screen__body">
+            <IngredientChecklist
+              selected={selected}
+              onChange={setSelected}
+              maxSelect={8}
+            />
+          </div>
+
+          {/* Right: live flavor preview */}
+          <div className="owner__preview">
+            <div className="owner__preview-label">Live Flavor Profile</div>
+            <div className="owner__preview-card neo-card">
+              {liveProfile ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FlavorProfileChart profile={liveProfile} />
+                  <p className="chart-caption" style={{ marginTop: '0.5rem' }}>
+                    8-dimension flavor vector updating live as you select ingredients
+                  </p>
+                </motion.div>
+              ) : (
+                <div className="owner__preview-empty">
+                  <span style={{ fontSize: '2.5rem' }}>🧪</span>
+                  <p>Select ingredients to see<br />your flavor profile build</p>
+                </div>
+              )}
+            </div>
+
+            {selected.length >= 2 && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="owner__preview-hint"
+              >
+                ✅ {selected.length} ingredient{selected.length > 1 ? 's' : ''} — ready to generate
+              </motion.div>
+            )}
+          </div>
         </div>
 
         <div className="screen__footer">
