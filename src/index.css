@@ -152,6 +152,18 @@ html, body, #root {
   color: var(--color-accent);
 }
 
+.mode-selector__stat {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin: 0.6rem auto 0;
+  line-height: 1.5;
+}
+.mode-selector__stat strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 .mode-selector__demo-hint {
   font-size: 0.72rem;
   color: var(--color-text-dim);
@@ -181,6 +193,21 @@ html, body, #root {
   max-width: 760px;
   margin: 0 auto;
   padding: 1.5rem;
+}
+
+.screen__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.screen__wordmark {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
 }
 
 .screen__header {
@@ -402,6 +429,14 @@ html, body, #root {
 }
 
 .flavor-chart { width: 100%; }
+.flavor-chart__caption {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  line-height: 1.5;
+  padding: 0 0.5rem;
+  margin-top: 0.25rem;
+}
 .flavor-chart__label {
   text-align: center;
   font-size: 0.8rem;
@@ -433,6 +468,13 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.output__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 .output__fallback-badge {

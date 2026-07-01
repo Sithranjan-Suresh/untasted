@@ -68,7 +68,10 @@ export default function FlavorProfileChart({ profile, animating = false }) {
           />
         </RadarChart>
       </ResponsiveContainer>
-      {animating && <p className="flavor-chart__label">Mapping flavor profile…</p>}
+      {animating
+        ? <p className="flavor-chart__label">Mapping flavor profile…</p>
+        : <p className="flavor-chart__caption">This radar shows the 8-dimension flavor vector that mathematically selected each ingredient.</p>
+      }
     </div>
   );
 }

@@ -29,12 +29,13 @@ export default function App() {
     setResult(null);
     setError(null);
     try {
-      const res = await fetch('/api/generate', {
+      const minDelay = new Promise(r => setTimeout(r, 2500));
+      const apiFetch = fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mode, input }),
-      });
-      const data = await res.json();
+      }).then(r => r.json());
+      const [data] = await Promise.all([apiFetch, minDelay]);
       setResult(data);
     } catch {
       setResult(fallbacks[mode]);

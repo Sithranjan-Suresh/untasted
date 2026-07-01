@@ -26,7 +26,10 @@ export default function CreativeModeScreen({ onGenerate, onBack }) {
   return (
     <div className="screen screen--creative">
       <div className="screen__header">
-        <button className="back-btn" onClick={onBack}>← Back</button>
+        <div className="screen__topbar">
+          <button className="back-btn" onClick={onBack}>← Back</button>
+          <span className="screen__wordmark">untasted</span>
+        </div>
         <h2 className="screen__title">Creative Mode</h2>
         <p className="screen__subtitle">Describe a mood, a moment, a craving. We'll invent the drink.</p>
       </div>

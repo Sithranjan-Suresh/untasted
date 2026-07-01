@@ -7,7 +7,10 @@ export default function OwnerModeScreen({ onGenerate, onBack }) {
   return (
     <div className="screen screen--owner">
       <div className="screen__header">
-        <button className="back-btn" onClick={onBack}>← Back</button>
+        <div className="screen__topbar">
+          <button className="back-btn" onClick={onBack}>← Back</button>
+          <span className="screen__wordmark">untasted</span>
+        </div>
         <h2 className="screen__title">Owner Mode</h2>
         <p className="screen__subtitle">Which ingredients do you need to use up?</p>
       </div>

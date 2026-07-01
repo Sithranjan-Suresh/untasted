@@ -6,6 +6,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 9, "roastiness": 9, "spice": 1, "brightness": 6, "creaminess": 1, "warmth": 7, "complexity": 8 },
     "cost_per_unit": 0.5,
     "unit": "shot",
+    "default_quantity": 2,
     "mock_stock_quantity": 50
   },
   {
@@ -15,6 +16,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 7, "roastiness": 8, "spice": 0, "brightness": 3, "creaminess": 1, "warmth": 2, "complexity": 6 },
     "cost_per_unit": 0.6,
     "unit": "oz",
+    "default_quantity": 2,
     "mock_stock_quantity": 30
   },
   {
@@ -24,6 +26,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 7, "roastiness": 8, "spice": 0, "brightness": 4, "creaminess": 1, "warmth": 6, "complexity": 6 },
     "cost_per_unit": 0.6,
     "unit": "shot",
+    "default_quantity": 2,
     "mock_stock_quantity": 20
   },
   {
@@ -33,6 +36,7 @@
     "flavor_profile": { "sweetness": 4, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 1, "creaminess": 8, "warmth": 3, "complexity": 2 },
     "cost_per_unit": 0.15,
     "unit": "oz",
+    "default_quantity": 6,
     "mock_stock_quantity": 200
   },
   {
@@ -42,6 +46,7 @@
     "flavor_profile": { "sweetness": 5, "bitterness": 0, "roastiness": 2, "spice": 0, "brightness": 2, "creaminess": 6, "warmth": 3, "complexity": 3 },
     "cost_per_unit": 0.25,
     "unit": "oz",
+    "default_quantity": 6,
     "mock_stock_quantity": 8
   },
   {
@@ -51,6 +56,7 @@
     "flavor_profile": { "sweetness": 4, "bitterness": 1, "roastiness": 1, "spice": 0, "brightness": 3, "creaminess": 4, "warmth": 2, "complexity": 3 },
     "cost_per_unit": 0.2,
     "unit": "oz",
+    "default_quantity": 6,
     "mock_stock_quantity": 60
   },
   {
@@ -60,6 +66,7 @@
     "flavor_profile": { "sweetness": 5, "bitterness": 0, "roastiness": 1, "spice": 1, "brightness": 3, "creaminess": 8, "warmth": 5, "complexity": 5 },
     "cost_per_unit": 0.3,
     "unit": "oz",
+    "default_quantity": 6,
     "mock_stock_quantity": 40
   },
   {
@@ -69,6 +76,7 @@
     "flavor_profile": { "sweetness": 3, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 0, "creaminess": 10, "warmth": 4, "complexity": 2 },
     "cost_per_unit": 0.2,
     "unit": "oz",
+    "default_quantity": 2,
     "mock_stock_quantity": 5
   },
   {
@@ -78,6 +86,7 @@
     "flavor_profile": { "sweetness": 9, "bitterness": 0, "roastiness": 1, "spice": 1, "brightness": 2, "creaminess": 2, "warmth": 5, "complexity": 4 },
     "cost_per_unit": 0.3,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 3
   },
   {
@@ -87,6 +96,7 @@
     "flavor_profile": { "sweetness": 9, "bitterness": 2, "roastiness": 4, "spice": 0, "brightness": 1, "creaminess": 3, "warmth": 7, "complexity": 5 },
     "cost_per_unit": 0.3,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 80
   },
   {
@@ -96,6 +106,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 3, "spice": 1, "brightness": 1, "creaminess": 2, "warmth": 6, "complexity": 5 },
     "cost_per_unit": 0.3,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 70
   },
   {
@@ -105,6 +116,7 @@
     "flavor_profile": { "sweetness": 7, "bitterness": 0, "roastiness": 0, "spice": 2, "brightness": 8, "creaminess": 1, "warmth": 3, "complexity": 7 },
     "cost_per_unit": 0.4,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 4
   },
   {
@@ -114,6 +126,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 4, "spice": 2, "brightness": 1, "creaminess": 1, "warmth": 8, "complexity": 5 },
     "cost_per_unit": 0.25,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 90
   },
   {
@@ -123,6 +136,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 0, "spice": 0, "brightness": 9, "creaminess": 0, "warmth": 2, "complexity": 4 },
     "cost_per_unit": 0.35,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 6
   },
   {
@@ -132,6 +146,7 @@
     "flavor_profile": { "sweetness": 9, "bitterness": 0, "roastiness": 2, "spice": 0, "brightness": 1, "creaminess": 5, "warmth": 4, "complexity": 3 },
     "cost_per_unit": 0.3,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 60
   },
   {
@@ -141,6 +156,7 @@
     "flavor_profile": { "sweetness": 7, "bitterness": 4, "roastiness": 6, "spice": 0, "brightness": 2, "creaminess": 2, "warmth": 6, "complexity": 6 },
     "cost_per_unit": 0.3,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 75
   },
   {
@@ -150,6 +166,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 2, "spice": 1, "brightness": 4, "creaminess": 1, "warmth": 5, "complexity": 6 },
     "cost_per_unit": 0.2,
     "unit": "tsp",
+    "default_quantity": 2,
     "mock_stock_quantity": 30
   },
   {
@@ -159,6 +176,7 @@
     "flavor_profile": { "sweetness": 3, "bitterness": 1, "roastiness": 2, "spice": 8, "brightness": 2, "creaminess": 0, "warmth": 9, "complexity": 6 },
     "cost_per_unit": 0.05,
     "unit": "tsp",
+    "default_quantity": 0.5,
     "mock_stock_quantity": 100
   },
   {
@@ -168,6 +186,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 2, "roastiness": 1, "spice": 8, "brightness": 7, "creaminess": 0, "warmth": 8, "complexity": 9 },
     "cost_per_unit": 0.1,
     "unit": "tsp",
+    "default_quantity": 0.25,
     "mock_stock_quantity": 40
   },
   {
@@ -177,6 +196,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 1, "roastiness": 2, "spice": 7, "brightness": 2, "creaminess": 0, "warmth": 9, "complexity": 7 },
     "cost_per_unit": 0.05,
     "unit": "tsp",
+    "default_quantity": 0.25,
     "mock_stock_quantity": 50
   },
   {
@@ -186,6 +206,7 @@
     "flavor_profile": { "sweetness": 1, "bitterness": 2, "roastiness": 0, "spice": 9, "brightness": 7, "creaminess": 0, "warmth": 9, "complexity": 7 },
     "cost_per_unit": 0.05,
     "unit": "tsp",
+    "default_quantity": 0.25,
     "mock_stock_quantity": 60
   },
   {
@@ -195,6 +216,7 @@
     "flavor_profile": { "sweetness": 0, "bitterness": 3, "roastiness": 1, "spice": 6, "brightness": 5, "creaminess": 0, "warmth": 8, "complexity": 7 },
     "cost_per_unit": 0.05,
     "unit": "tsp",
+    "default_quantity": 0.25,
     "mock_stock_quantity": 45
   },
   {
@@ -204,6 +226,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 6, "roastiness": 2, "spice": 1, "brightness": 8, "creaminess": 1, "warmth": 4, "complexity": 8 },
     "cost_per_unit": 0.5,
     "unit": "tsp",
+    "default_quantity": 1,
     "mock_stock_quantity": 20
   },
   {
@@ -213,6 +236,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 7, "roastiness": 6, "spice": 0, "brightness": 2, "creaminess": 1, "warmth": 5, "complexity": 7 },
     "cost_per_unit": 0.1,
     "unit": "tsp",
+    "default_quantity": 1,
     "mock_stock_quantity": 80
   },
   {
@@ -222,6 +246,7 @@
     "flavor_profile": { "sweetness": 5, "bitterness": 1, "roastiness": 1, "spice": 2, "brightness": 3, "creaminess": 2, "warmth": 6, "complexity": 5 },
     "cost_per_unit": 0.1,
     "unit": "drops",
+    "default_quantity": 3,
     "mock_stock_quantity": 35
   },
   {
@@ -231,6 +256,7 @@
     "flavor_profile": { "sweetness": 1, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 5, "creaminess": 0, "warmth": 0, "complexity": 4 },
     "cost_per_unit": 0.01,
     "unit": "pinch",
+    "default_quantity": 1,
     "mock_stock_quantity": 200
   },
   {
@@ -240,6 +266,7 @@
     "flavor_profile": { "sweetness": 5, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 0, "creaminess": 9, "warmth": 2, "complexity": 2 },
     "cost_per_unit": 0.2,
     "unit": "oz",
+    "default_quantity": 1,
     "mock_stock_quantity": 15
   },
   {
@@ -249,6 +276,7 @@
     "flavor_profile": { "sweetness": 4, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 1, "creaminess": 8, "warmth": 1, "complexity": 2 },
     "cost_per_unit": 0.3,
     "unit": "oz",
+    "default_quantity": 1,
     "mock_stock_quantity": 10
   },
   {
@@ -258,6 +286,7 @@
     "flavor_profile": { "sweetness": 2, "bitterness": 5, "roastiness": 0, "spice": 1, "brightness": 9, "creaminess": 0, "warmth": 0, "complexity": 4 },
     "cost_per_unit": 0.2,
     "unit": "oz",
+    "default_quantity": 4,
     "mock_stock_quantity": 48
   },
   {
@@ -267,6 +296,7 @@
     "flavor_profile": { "sweetness": 3, "bitterness": 3, "roastiness": 0, "spice": 2, "brightness": 10, "creaminess": 0, "warmth": 3, "complexity": 6 },
     "cost_per_unit": 0.1,
     "unit": "tsp",
+    "default_quantity": 0.5,
     "mock_stock_quantity": 20
   },
   {
@@ -276,6 +306,7 @@
     "flavor_profile": { "sweetness": 7, "bitterness": 2, "roastiness": 0, "spice": 0, "brightness": 10, "creaminess": 0, "warmth": 1, "complexity": 4 },
     "cost_per_unit": 0.3,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 25
   },
   {
@@ -285,6 +316,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 0, "spice": 2, "brightness": 7, "creaminess": 1, "warmth": 3, "complexity": 7 },
     "cost_per_unit": 0.4,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 5
   },
   {
@@ -294,6 +326,7 @@
     "flavor_profile": { "sweetness": 5, "bitterness": 3, "roastiness": 3, "spice": 9, "brightness": 4, "creaminess": 1, "warmth": 9, "complexity": 9 },
     "cost_per_unit": 0.4,
     "unit": "oz",
+    "default_quantity": 2,
     "mock_stock_quantity": 12
   },
   {
@@ -303,6 +336,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 3, "spice": 7, "brightness": 1, "creaminess": 2, "warmth": 9, "complexity": 7 },
     "cost_per_unit": 0.35,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 7
   },
   {
@@ -312,6 +346,7 @@
     "flavor_profile": { "sweetness": 3, "bitterness": 4, "roastiness": 7, "spice": 0, "brightness": 1, "creaminess": 4, "warmth": 4, "complexity": 8 },
     "cost_per_unit": 0.5,
     "unit": "tsp",
+    "default_quantity": 1,
     "mock_stock_quantity": 10
   },
   {
@@ -321,6 +356,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 1, "roastiness": 2, "spice": 0, "brightness": 2, "creaminess": 3, "warmth": 4, "complexity": 6 },
     "cost_per_unit": 0.4,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 8
   },
   {
@@ -330,6 +366,7 @@
     "flavor_profile": { "sweetness": 10, "bitterness": 0, "roastiness": 2, "spice": 0, "brightness": 1, "creaminess": 8, "warmth": 4, "complexity": 3 },
     "cost_per_unit": 0.15,
     "unit": "tsp",
+    "default_quantity": 2,
     "mock_stock_quantity": 40
   },
   {
@@ -339,6 +376,7 @@
     "flavor_profile": { "sweetness": 3, "bitterness": 2, "roastiness": 1, "spice": 0, "brightness": 2, "creaminess": 5, "warmth": 2, "complexity": 3 },
     "cost_per_unit": 0.2,
     "unit": "oz",
+    "default_quantity": 6,
     "mock_stock_quantity": 70
   },
   {
@@ -348,6 +386,7 @@
     "flavor_profile": { "sweetness": 8, "bitterness": 0, "roastiness": 4, "spice": 1, "brightness": 2, "creaminess": 1, "warmth": 7, "complexity": 6 },
     "cost_per_unit": 0.25,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 35
   },
   {
@@ -357,6 +396,7 @@
     "flavor_profile": { "sweetness": 6, "bitterness": 2, "roastiness": 0, "spice": 0, "brightness": 7, "creaminess": 0, "warmth": 2, "complexity": 6 },
     "cost_per_unit": 0.5,
     "unit": "pump",
+    "default_quantity": 2,
     "mock_stock_quantity": 3
   },
   {
@@ -366,6 +406,7 @@
     "flavor_profile": { "sweetness": 0, "bitterness": 0, "roastiness": 0, "spice": 0, "brightness": 6, "creaminess": 0, "warmth": 0, "complexity": 1 },
     "cost_per_unit": 0.1,
     "unit": "oz",
+    "default_quantity": 4,
     "mock_stock_quantity": 100
   }
 ]

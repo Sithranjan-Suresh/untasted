@@ -4,6 +4,7 @@ export default function ModeSelector({ onSelect }) {
       <div className="mode-selector__header">
         <h1 className="mode-selector__logo">untasted</h1>
         <p className="mode-selector__tagline">An AI engine that invents coffee drinks from scratch.</p>
+        <p className="mode-selector__stat">Cafés waste an average of <strong>15% of perishable stock</strong> every week — Untasted turns surplus into tomorrow's special.</p>
       </div>
       <div className="mode-selector__cards">
         <button className="mode-card mode-card--owner" onClick={() => onSelect('owner')}>

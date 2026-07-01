@@ -23,9 +23,12 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
 
   return (
     <div className="output">
-      {fallback && (
-        <div className="output__fallback-badge">Showing a saved example</div>
-      )}
+      <div className="output__topbar">
+        <span className="screen__wordmark">untasted</span>
+        {fallback && (
+          <div className="output__fallback-badge">Showing a saved example</div>
+        )}
+      </div>
 
       <div className="output__top">
         {mode === 'creative' && recipe_name && (
@@ -86,7 +89,7 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
               {(matched_ingredients ?? []).map((ing, i) => (
                 <li key={i} className="output__reason">
                   <span className="output__reason-name">{ing.name}</span>
-                  <span className="output__reason-score">match {Math.round(ing.score * 100)}%</span>
+                  <span className="output__reason-score">Flavor match: {Math.round(ing.score * 100)}%</span>
                   <p className="output__reason-text">{ing.reason}</p>
                 </li>
               ))}
