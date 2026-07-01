@@ -1,0 +1,70 @@
+{
+  "owner": {
+    "mode": "owner",
+    "fallback": true,
+    "input": ["oat_milk", "lavender_syrup", "espresso", "vanilla_syrup"],
+    "target_flavor_profile": {
+      "sweetness": 5.75,
+      "bitterness": 2.25,
+      "roastiness": 2.5,
+      "spice": 1.0,
+      "brightness": 4.5,
+      "creaminess": 2.5,
+      "warmth": 4.5,
+      "complexity": 5.5
+    },
+    "matched_ingredients": [
+      { "id": "oat_milk", "name": "Oat Milk", "score": 0.97, "reason": "Its gentle roastiness and natural sweetness bridge the gap between the espresso base and floral lavender notes." },
+      { "id": "lavender_syrup", "name": "Lavender Syrup", "score": 0.93, "reason": "High brightness (8/10) cuts through cream and coffee weight, giving the drink an unexpected floral lift." },
+      { "id": "espresso", "name": "Espresso Shot", "score": 0.91, "reason": "Roastiness (9/10) and bitterness anchor the drink, preventing the lavender and vanilla from turning cloying." },
+      { "id": "vanilla_syrup", "name": "Vanilla Syrup", "score": 0.88, "reason": "Warmth (5/10) and sweetness round out the finish, making the floral notes approachable for all palates." }
+    ],
+    "recipe_name": null,
+    "recipe_steps": [
+      "Pull 1 double espresso shot into a 12oz cup.",
+      "Add 2 pumps lavender syrup and 1 pump vanilla syrup directly over the espresso. Stir briefly.",
+      "Steam 6oz oat milk to 140°F, aiming for a microfoam with a light, silky texture.",
+      "Pour steamed oat milk slowly over the espresso-syrup base.",
+      "Garnish with a single dried lavender sprig. Serve immediately."
+    ],
+    "cost_estimate": 1.65,
+    "buildable": true,
+    "artwork_url": null,
+    "timestamp": "2025-06-30T10:00:00Z"
+  },
+  "creative": {
+    "mode": "creative",
+    "fallback": true,
+    "input": "something warm and mysterious, like a rainy afternoon in a library with old wooden shelves",
+    "target_flavor_profile": {
+      "sweetness": 4,
+      "bitterness": 6,
+      "roastiness": 7,
+      "spice": 5,
+      "brightness": 3,
+      "creaminess": 4,
+      "warmth": 9,
+      "complexity": 9
+    },
+    "matched_ingredients": [
+      { "id": "espresso", "name": "Espresso Shot", "score": 0.96, "reason": "Roastiness (9/10) and bitterness provide the deep, slightly dark backbone a 'rainy library' atmosphere demands." },
+      { "id": "cardamom", "name": "Cardamom", "score": 0.94, "reason": "High complexity (9/10) and brightness (7/10) add the unexpected aromatic quality of old paper and polished wood." },
+      { "id": "brown_sugar_syrup", "name": "Brown Sugar Syrup", "score": 0.91, "reason": "Warmth (8/10) and gentle roastiness echo aged oak and amber candlelight without pushing the drink toward dessert." },
+      { "id": "oat_milk", "name": "Oat Milk", "score": 0.87, "reason": "Medium creaminess (6/10) softens the bitter-spice edge, the way a wool blanket softens a cold afternoon." },
+      { "id": "cocoa_powder", "name": "Cocoa Powder", "score": 0.84, "reason": "Adds a whisper of roasty bitterness (7/10) and complexity that deepens the drink without fully revealing itself." }
+    ],
+    "recipe_name": "The Archivist",
+    "recipe_steps": [
+      "Pull 1 double espresso shot into a warmed 10oz cup.",
+      "Stir in 2 pumps brown sugar syrup and a 1/4 tsp cardamom until dissolved.",
+      "Steam 5oz oat milk to 150°F — a full, velvety microfoam.",
+      "Pour the steamed oat milk over the espresso base in a slow, deliberate stream.",
+      "Dust the foam surface with a fine layer of cocoa powder using a fine-mesh sieve.",
+      "Rest for 10 seconds. Let the aromas gather. Then serve."
+    ],
+    "cost_estimate": 1.40,
+    "buildable": true,
+    "artwork_url": "https://image.pollinations.ai/prompt/moody%20warm%20coffee%20drink%20in%20a%20ceramic%20cup%20surrounded%20by%20old%20books%20amber%20light%20rain%20window%20cinematic%20dark%20academia?width=512&height=512&nologo=true",
+    "timestamp": "2025-06-30T10:00:00Z"
+  }
+}
