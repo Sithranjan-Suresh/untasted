@@ -59,11 +59,6 @@ export default function ModeSelector({ onSelect }) {
         initial="hidden"
         animate="show"
       >
-        {/* Badge */}
-        <motion.div variants={item}>
-          <span className="home__badge">☕ BeanHacks 2026</span>
-        </motion.div>
-
         {/* Title */}
         <motion.h1 className="home__title" variants={item}>
           Turn surplus
@@ -84,11 +79,9 @@ export default function ModeSelector({ onSelect }) {
 
         {/* Impact stat */}
         <motion.p className="home__subtitle" variants={item}>
-          Cafés lose an average of{' '}
+          Cafés lose{' '}
           <span className="home__stat">$1,200/month</span>
-          {' '}to ingredient waste — that's{' '}
-          <span className="home__stat" style={{ transform: 'rotate(1deg)' }}>15% of perishable stock</span>
-          {' '}every week. Untasted turns surplus into tomorrow's special using flavor chemistry, not guesswork.
+          {' '}to ingredient waste. Untasted turns surplus into tomorrow's special using flavor chemistry — not guesswork.
         </motion.p>
 
         {/* Scrolling marquee */}

@@ -1,8 +1,20 @@
 # ☕ Untasted — AI Coffee Drink Invention Engine
 
-> **BeanHacks 2025** · Turn surplus into tomorrow's special.
+> **BeanHacks 2026** · Turn surplus into tomorrow's special.
 
-Cafés waste an average of **15% of perishable stock** every week. Untasted uses flavor chemistry — not guesswork — to turn that surplus into a barista-quality named recipe, complete with a cost estimate, buildability check, and AI artwork.
+Cafés lose an average of **$1,200/month** to ingredient waste. Untasted uses flavor chemistry — not guesswork — to turn that surplus into a barista-quality named recipe, complete with a cost estimate, buildability check, margin projection, and AI artwork.
+
+---
+
+## BeanHacks 2026 — Criteria Alignment
+
+| Criterion | How Untasted addresses it |
+|---|---|
+| **Waste Reduction** | Owner Mode converts near-expiry ingredients into sellable recipes before they expire — each output shows exactly which surplus items are rescued |
+| **Inventory Optimization** | Expiry-aware ingredient picker flags items expiring in ≤3 days; buildability check confirms recipe is makeable from current stock |
+| **Profitability & Sales Analytics** | Every Owner Mode recipe includes cost-per-cup, estimated sell price, and margin per cup at standard café markup |
+| **Innovation** | Core engine is a real cosine similarity algorithm over hand-crafted 8-dimension flavor vectors — not a prompt wrapper |
+| **Customer Experience** | Creative Mode lets customers describe a mood/vibe and get a genuinely invented drink, complete with AI artwork |
 
 ---
 
@@ -23,12 +35,14 @@ Select your surplus stock from 40+ café ingredients. Untasted:
 - Builds a target flavor profile from your selection
 - Runs cosine similarity to find the best-matching combinations
 - Generates a named recipe with exact quantities and steps
-- Shows estimated cost per drink and buildability from current stock
-- Flags how many near-expiry items the recipe keeps off the bin
+- Shows estimated cost per drink, sell price, and margin per cup
+- Flags near-expiry items (≤3 days) and confirms buildability from stock
+- Shows how many near-expiry items the recipe keeps off the bin
 
 ### 🎨 Creative Mode
 Describe a mood or vibe in plain text ("rainy afternoon in a library"). Untasted:
 - Parses your description into an 8D flavor profile using an LLM
+- Visualises the parsed profile (sweetness: 9/10, warmth: 8/10…) in real time
 - Matches ingredients to that profile via cosine similarity
 - Generates a drink name, recipe steps, and AI artwork (via Pollinations)
 
@@ -100,10 +114,10 @@ src/
     RecipeOutput.jsx      # Full recipe output with chart, steps, reasons
     FlavorProfileChart.jsx# Animated 8D radar chart (Recharts)
     IngredientChecklist.jsx # Searchable ingredient picker
-    LoadingScreen.jsx     # Animated loading with brew facts
+    LoadingScreen.jsx     # Animated loading with brew facts + vibe parse reveal
     Loader.jsx            # Splash screen
   data/
-    ingredients.json      # 40 ingredients with 8D flavor profiles + cost data
+    ingredients.json      # 40 ingredients with 8D flavor profiles + cost + expiry data
     fallbacks.json        # Pre-generated example results
   utils/
     matching.js           # Cosine similarity engine + diversity filter
@@ -118,4 +132,4 @@ api/
 
 - **Shift+F** anywhere in the app loads a pre-generated fallback result instantly
 - All LLM calls have a 14-second total timeout with automatic fallback
-- Artwork failures gracefully degrade to a placeholder with the drink name
+- Artwork failures gracefully degrade to a shimmer loader then a placeholder

@@ -138,9 +138,15 @@ export default function RecipeOutput({ result, onBack, onReset, onSave, savedDri
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, type: 'spring', stiffness: 300 }}
+                title="Estimated at standard 4.5× café markup. Actual margin depends on pricing and labour."
               >
                 📈 ~${sellPrice} sell price → ${marginPerCup} margin/cup
               </motion.span>
+            )}
+            {isOwner && sellPrice && (
+              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#a08060', alignSelf: 'center' }}>
+                * est. at standard café markup
+              </span>
             )}
             {isOwner && surplusCount > 0 && (
               <motion.span
