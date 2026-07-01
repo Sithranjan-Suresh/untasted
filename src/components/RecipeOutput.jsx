@@ -35,7 +35,7 @@ export default function RecipeOutput({ result, onBack, onReset, onSave }) {
           <h1 className="output__drink-name">{recipe_name}</h1>
         )}
         {mode === 'owner' && (
-          <h1 className="output__drink-name">Your New Drink</h1>
+          <h1 className="output__drink-name">{recipe_name ?? 'Your New Drink'}</h1>
         )}
 
         <div className="output__meta">

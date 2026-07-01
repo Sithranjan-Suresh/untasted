@@ -19,7 +19,7 @@
       { "id": "espresso", "name": "Espresso Shot", "score": 0.91, "reason": "Roastiness (9/10) and bitterness anchor the drink, preventing the lavender and vanilla from turning cloying." },
       { "id": "vanilla_syrup", "name": "Vanilla Syrup", "score": 0.88, "reason": "Warmth (5/10) and sweetness round out the finish, making the floral notes approachable for all palates." }
     ],
-    "recipe_name": null,
+    "recipe_name": "Lavender Dusk",
     "recipe_steps": [
       "Pull 1 double espresso shot into a 12oz cup.",
       "Add 2 pumps lavender syrup and 1 pump vanilla syrup directly over the espresso. Stir briefly.",
