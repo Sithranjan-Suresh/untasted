@@ -1,111 +1,200 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import FlavorProfileChart from './FlavorProfileChart';
+
+const scrollReveal = {
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 240, damping: 26 } },
+};
 
 export default function RecipeOutput({ result, onBack, onReset, onSave }) {
   const [saved, setSaved] = useState(false);
+  const [imgErr, setImgErr] = useState(false);
+
+  if (!result) return null;
+
+  const isOwner = result.mode === 'owner';
+  const drinkName = result.recipe_name ?? 'Your New Drink';
 
   function handleSave() {
-    onSave();
+    onSave?.(result);
     setSaved(true);
   }
 
-  const {
-    mode,
-    fallback,
-    recipe_name,
-    recipe_steps,
-    matched_ingredients,
-    target_flavor_profile,
-    cost_estimate,
-    buildable,
-    artwork_url,
-  } = result;
+  const matchPct = result.matched_ingredients?.length
+    ? Math.round(
+        (result.matched_ingredients.reduce((sum, i) => sum + i.score, 0) /
+          result.matched_ingredients.length) * 100
+      )
+    : null;
 
   return (
-    <div className="output">
-      <div className="output__topbar">
-        <span className="screen__wordmark">untasted</span>
-        {fallback && (
-          <div className="output__fallback-badge">Showing a saved example</div>
-        )}
-      </div>
+    <div>
+      {/* Navbar */}
+      <nav className="navbar">
+        <div className="navbar__inner">
+          <div className="navbar__logo">
+            <span className="navbar__logo-icon">☕</span>
+            untasted
+          </div>
+          {result.fallback && <span className="output__fallback-badge">📦 Example result</span>}
+          <button className="navbar__back" onClick={onReset}>← New Drink</button>
+        </div>
+      </nav>
 
-      <div className="output__top">
-        {mode === 'creative' && recipe_name && (
-          <h1 className="output__drink-name">{recipe_name}</h1>
-        )}
-        {mode === 'owner' && (
-          <h1 className="output__drink-name">{recipe_name ?? 'Your New Drink'}</h1>
-        )}
+      <motion.div
+        className="output"
+        initial="hidden"
+        animate="show"
+        variants={{ show: { transition: { staggerChildren: 0.12 } } }}
+      >
+        {/* Drink name */}
+        <motion.div variants={scrollReveal}>
+          <div style={{ marginBottom: '0.25rem', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8a5030' }}>
+            {isOwner ? 'Owner Mode Recipe' : 'Creative Mode Recipe'}
+          </div>
+          <div className="output__drink-name">
+            {drinkName}
+            <motion.span
+              className="output__name-underline"
+              initial={{ width: 0 }}
+              animate={{ width: '100%' }}
+              transition={{ delay: 0.4, duration: 0.5, ease: 'easeOut' }}
+            />
+          </div>
 
-        <div className="output__meta">
-          {mode === 'owner' && (
-            <>
-              <span className={`buildability-badge ${buildable ? 'buildability-badge--ok' : 'buildability-badge--warn'}`}>
-                {buildable ? '✅ Ready to Build' : '⚠️ Check Stock'}
+          <div className="output__meta">
+            {matchPct !== null && (
+              <span style={{
+                fontSize: '0.85rem', fontWeight: 800, padding: '6px 16px',
+                border: '3px solid var(--black)', borderRadius: '100px',
+                background: 'white', boxShadow: 'var(--shadow-sm)'
+              }}>
+                Flavor match: {matchPct}%
               </span>
-              {cost_estimate !== null && (
-                <span className="cost-badge">Est. cost: ${cost_estimate.toFixed(2)}</span>
-              )}
-            </>
-          )}
-        </div>
-      </div>
+            )}
+            {isOwner && result.buildable !== null && (
+              <span className={`buildability-badge ${result.buildable ? 'buildability-badge--ok' : 'buildability-badge--warn'}`}>
+                {result.buildable ? '✅ Buildable' : '⚠️ Check stock'}
+              </span>
+            )}
+            {isOwner && result.cost_estimate !== null && (
+              <span className="cost-badge">
+                💰 Est. cost: ${result.cost_estimate.toFixed(2)}
+              </span>
+            )}
+          </div>
+        </motion.div>
 
-      <div className="output__body">
-        <div className="output__chart-col">
-          <h3 className="output__section-label">Flavor Profile</h3>
-          <FlavorProfileChart profile={target_flavor_profile} />
-        </div>
+        {/* Main body */}
+        <div className="output__body">
+          {/* Left col: chart + artwork */}
+          <div>
+            <motion.div variants={scrollReveal}>
+              <div className="output__section-label">Flavor Profile</div>
+              <div className="output__chart-wrap">
+                <FlavorProfileChart profile={result.target_flavor_profile} />
+                <p className="chart-caption">
+                  This radar shows the 8-dimension flavor vector that mathematically selected each ingredient.
+                </p>
+              </div>
+            </motion.div>
 
-        <div className="output__content-col">
-          {mode === 'creative' && artwork_url && (
-            <div className="output__artwork">
-              <img
-                src={artwork_url}
-                alt={recipe_name ?? 'Generated drink'}
-                onError={e => { e.target.style.display = 'none'; }}
-              />
-            </div>
-          )}
-          {mode === 'creative' && !artwork_url && recipe_name && (
-            <div className="output__artwork output__artwork--placeholder">
-              <span>{recipe_name}</span>
-            </div>
-          )}
-
-          <div className="output__recipe">
-            <h3 className="output__section-label">Recipe</h3>
-            <ol className="output__steps">
-              {(recipe_steps ?? []).map((step, i) => (
-                <li key={i}>{step}</li>
-              ))}
-            </ol>
+            {!isOwner && (
+              <motion.div variants={scrollReveal} style={{ marginTop: '1.25rem' }}>
+                <div className="output__section-label">AI Artwork</div>
+                <div className={`output__artwork ${!result.artwork_url || imgErr ? 'output__artwork--placeholder' : ''}`}>
+                  {result.artwork_url && !imgErr ? (
+                    <img
+                      src={result.artwork_url}
+                      alt={drinkName}
+                      onError={() => setImgErr(true)}
+                    />
+                  ) : (
+                    <>
+                      <span style={{ fontSize: '3rem' }}>☕</span>
+                      <span>{drinkName}</span>
+                    </>
+                  )}
+                </div>
+              </motion.div>
+            )}
           </div>
 
-          <div className="output__explanations">
-            <h3 className="output__section-label">Why Each Ingredient</h3>
-            <ul className="output__reasons">
-              {(matched_ingredients ?? []).map((ing, i) => (
-                <li key={i} className="output__reason">
-                  <span className="output__reason-name">{ing.name}</span>
-                  <span className="output__reason-score">Flavor match: {Math.round(ing.score * 100)}%</span>
-                  <p className="output__reason-text">{ing.reason}</p>
-                </li>
-              ))}
-            </ul>
+          {/* Right col: recipe + reasons */}
+          <div>
+            <motion.div variants={scrollReveal}>
+              <div className="output__section-label">Recipe Steps</div>
+              <div className="output__recipe-card">
+                <ol className="output__steps">
+                  {(result.recipe_steps ?? []).map((step, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + i * 0.07 }}
+                    >
+                      {step}
+                    </motion.li>
+                  ))}
+                </ol>
+              </div>
+            </motion.div>
+
+            <motion.div variants={scrollReveal}>
+              <div className="output__section-label">Why These Ingredients?</div>
+              <ul className="output__reasons">
+                {(result.matched_ingredients ?? []).map((ing, i) => (
+                  <motion.li
+                    key={ing.id ?? i}
+                    className="output__reason-card"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 * i }}
+                  >
+                    <div className="output__reason-header">
+                      <span className="output__reason-name">{ing.name}</span>
+                      <span className="output__reason-score">
+                        {Math.round(ing.score * 100)}%
+                      </span>
+                    </div>
+                    <div className="output__reason-text">{ing.reason}</div>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
-      </div>
 
-      <div className="output__actions">
-        <button className="back-btn" onClick={onBack}>← Try Another</button>
-        <button className="secondary-btn" onClick={onReset}>Change Mode</button>
-        {!saved
-          ? <button className="save-btn" onClick={handleSave}>Save This Drink</button>
-          : <span className="save-btn save-btn--saved">✓ Saved!</span>
-        }
-      </div>
+        {/* Actions */}
+        <motion.div className="output__actions" variants={scrollReveal}>
+          <motion.button
+            className="neo-btn neo-btn--primary"
+            onClick={handleSave}
+            disabled={saved}
+            whileHover={!saved ? { scale: 1.04 } : {}}
+            whileTap={!saved ? { scale: 0.96 } : {}}
+          >
+            {saved ? '✓ Saved!' : '💾 Save Recipe'}
+          </motion.button>
+          <motion.button
+            className="neo-btn neo-btn--outline"
+            onClick={onReset}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+          >
+            🔄 Make Another
+          </motion.button>
+          <motion.button
+            className="neo-btn neo-btn--outline neo-btn--sm"
+            onClick={onBack}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+          >
+            ← Back to Modes
+          </motion.button>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

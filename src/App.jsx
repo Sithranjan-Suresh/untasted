@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import ModeSelector from './components/ModeSelector';
 import OwnerModeScreen from './components/OwnerModeScreen';
 import CreativeModeScreen from './components/CreativeModeScreen';
 import RecipeOutput from './components/RecipeOutput';
 import LoadingScreen from './components/LoadingScreen';
+import Loader from './components/Loader';
 import fallbacks from './data/fallbacks.json';
-import './App.css';
 
 export default function App() {
+  const [appReady, setAppReady] = useState(false);
   const [mode, setMode] = useState(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
   const [savedDrinks, setSavedDrinks] = useState([]);
 
   useEffect(() => {
@@ -27,7 +28,6 @@ export default function App() {
   async function handleGenerate(input) {
     setIsGenerating(true);
     setResult(null);
-    setError(null);
     try {
       const minDelay = new Promise(r => setTimeout(r, 2500));
       const apiFetch = fetch('/api/generate', {
@@ -48,23 +48,33 @@ export default function App() {
     if (result) setSavedDrinks(prev => [result, ...prev]);
   }
 
-  function handleBack() {
-    setResult(null);
-    setError(null);
+  function handleBack() { setResult(null); }
+  function handleReset() { setMode(null); setResult(null); setIsGenerating(false); }
+
+  let screen;
+  if (isGenerating) {
+    screen = <LoadingScreen key="loading" mode={mode} />;
+  } else if (result) {
+    screen = <RecipeOutput key="output" result={result} onBack={handleBack} onReset={handleReset} onSave={handleSave} />;
+  } else if (mode === 'owner') {
+    screen = <OwnerModeScreen key="owner" onGenerate={handleGenerate} onBack={handleReset} />;
+  } else if (mode === 'creative') {
+    screen = <CreativeModeScreen key="creative" onGenerate={handleGenerate} onBack={handleReset} />;
+  } else {
+    screen = <ModeSelector key="home" onSelect={setMode} />;
   }
 
-  function handleReset() {
-    setMode(null);
-    setResult(null);
-    setError(null);
-    setIsGenerating(false);
-  }
+  return (
+    <>
+      {/* Loader overlays everything, exits on its own via position:fixed */}
+      <AnimatePresence>
+        {!appReady && <Loader key="loader" onDone={() => setAppReady(true)} />}
+      </AnimatePresence>
 
-  if (!mode) return <ModeSelector onSelect={setMode} />;
-  if (isGenerating) return <LoadingScreen mode={mode} />;
-  if (result) return <RecipeOutput result={result} onBack={handleBack} onReset={handleReset} onSave={handleSave} />;
-
-  if (mode === 'owner') return <OwnerModeScreen onGenerate={handleGenerate} onBack={handleReset} />;
-  if (mode === 'creative') return <CreativeModeScreen onGenerate={handleGenerate} onBack={handleReset} />;
-  return null;
+      {/* Main app content — renders behind loader, transitions between screens */}
+      <AnimatePresence mode="wait">
+        {screen}
+      </AnimatePresence>
+    </>
+  );
 }

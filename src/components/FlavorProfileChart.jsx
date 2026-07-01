@@ -12,66 +12,55 @@ const DIMS = [
   { key: 'complexity', label: 'Complex' },
 ];
 
-function lerp(a, b, t) {
-  return a + (b - a) * t;
-}
+function lerp(a, b, t) { return a + (b - a) * t; }
 
-function buildChartData(profile) {
-  return DIMS.map(({ key, label }) => ({ subject: label, value: profile[key] ?? 0, fullMark: 10 }));
-}
-
-export default function FlavorProfileChart({ profile, animating = false }) {
-  const [displayed, setDisplayed] = useState(
+export default function FlavorProfileChart({ profile }) {
+  const [displayProfile, setDisplayProfile] = useState(
     Object.fromEntries(DIMS.map(d => [d.key, 0]))
   );
+  const [animating, setAnimating] = useState(true);
 
   useEffect(() => {
     if (!profile) return;
-
-    let start = null;
+    const start = Date.now();
     const duration = 1200;
-    const from = { ...displayed };
-
-    function step(ts) {
-      if (!start) start = ts;
-      const t = Math.min((ts - start) / duration, 1);
-      const eased = 1 - (1 - t) ** 3;
+    let raf;
+    function tick() {
+      const t = Math.min((Date.now() - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
       const next = {};
-      for (const { key } of DIMS) {
-        next[key] = parseFloat(lerp(from[key], profile[key] ?? 0, eased).toFixed(2));
+      DIMS.forEach(d => { next[d.key] = lerp(0, profile[d.key] ?? 0, ease); });
+      setDisplayProfile(next);
+      if (t < 1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        setAnimating(false);
       }
-      setDisplayed(next);
-      if (t < 1) requestAnimationFrame(step);
     }
-
-    requestAnimationFrame(step);
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [profile]);
 
-  const data = buildChartData(displayed);
+  const data = DIMS.map(d => ({ subject: d.label, A: displayProfile[d.key] ?? 0 }));
 
   return (
-    <div className="flavor-chart">
-      <ResponsiveContainer width="100%" height={260}>
+    <div>
+      <ResponsiveContainer width="100%" height={220}>
         <RadarChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 20 }}>
-          <PolarGrid stroke="var(--color-border)" />
+          <PolarGrid stroke="#e8d8c0" />
           <PolarAngleAxis
             dataKey="subject"
-            tick={{ fill: 'var(--color-text-muted)', fontSize: 11, fontFamily: 'var(--font-sans)' }}
+            tick={{ fontFamily: 'var(--font)', fontSize: 11, fontWeight: 700, fill: '#6a4020' }}
           />
           <Radar
-            dataKey="value"
-            stroke="var(--color-accent)"
-            fill="var(--color-accent)"
+            dataKey="A"
+            stroke="#d4873a"
+            fill="#d4873a"
             fillOpacity={0.25}
             strokeWidth={2}
-            dot={{ fill: 'var(--color-accent)', r: 3 }}
           />
         </RadarChart>
       </ResponsiveContainer>
-      {animating
-        ? <p className="flavor-chart__label">Mapping flavor profile…</p>
-        : <p className="flavor-chart__caption">This radar shows the 8-dimension flavor vector that mathematically selected each ingredient.</p>
-      }
     </div>
   );
 }
