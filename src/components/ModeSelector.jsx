@@ -24,6 +24,7 @@ export default function ModeSelector({ onSelect }) {
         </button>
       </div>
       <p className="mode-selector__footnote">Same flavor engine. Two very different payoffs.</p>
+      <p className="mode-selector__demo-hint">Demo tip: press <kbd>Shift+F</kbd> at any time to load a saved example instantly.</p>
     </div>
   );
 }

@@ -152,6 +152,20 @@ html, body, #root {
   color: var(--color-accent);
 }
 
+.mode-selector__demo-hint {
+  font-size: 0.72rem;
+  color: var(--color-text-dim);
+  margin-top: -1rem;
+}
+.mode-selector__demo-hint kbd {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+}
+
 .mode-selector__footnote {
   color: var(--color-text-dim);
   font-size: 0.8rem;
