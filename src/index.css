@@ -33,6 +33,11 @@
   padding: 0;
 }
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 html, body, #root {
   height: 100%;
   background: var(--color-bg);
@@ -44,6 +49,12 @@ html, body, #root {
 }
 
 /* ── Mode Selector ──────────────────────────────────────── */
+
+.mode-selector,
+.screen,
+.loading-screen {
+  animation: fadeUp 0.3s ease both;
+}
 
 .mode-selector {
   min-height: 100vh;
@@ -561,6 +572,26 @@ html, body, #root {
   flex-wrap: wrap;
   padding-top: 1rem;
   border-top: 1px solid var(--color-border);
+}
+
+/* ── Staggered output reveal animation (Task 30) ────────── */
+
+.output__top       { animation: fadeUp 0.35s ease both; animation-delay: 0.05s; }
+.output__chart-col { animation: fadeUp 0.35s ease both; animation-delay: 0.15s; }
+.output__artwork   { animation: fadeUp 0.35s ease both; animation-delay: 0.25s; }
+.output__recipe    { animation: fadeUp 0.35s ease both; animation-delay: 0.35s; }
+.output__explanations { animation: fadeUp 0.35s ease both; animation-delay: 0.45s; }
+.output__actions   { animation: fadeUp 0.35s ease both; animation-delay: 0.55s; }
+
+/* ── Responsive (Task 31) ────────────────────────────────── */
+
+@media (max-width: 520px) {
+  .mode-selector__logo { font-size: 2.4rem; }
+  .mode-selector__cards { grid-template-columns: 1fr; }
+  .output__top { flex-direction: column; align-items: flex-start; }
+  .output__meta { margin-left: 0; }
+  .screen { padding: 1rem; }
+  .output { padding: 1rem; }
 }
 
 /* ── App.css reset ───────────────────────────────────────── */
